@@ -74,7 +74,6 @@ function App() {
     setTimeout(() => {
       setLoad(false);
     }, 1200);
-    console.log(window.location.pathname)
     if (window.location.pathname !== "/")
     {setLoad(false)};
   }, []);

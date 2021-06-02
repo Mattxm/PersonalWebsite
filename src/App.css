@@ -4,3 +4,20 @@
   /* font-family: a; */
 }
 
+body{
+  background-color: #363636;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.794);
+  background-color: rgb(27, 27, 27);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: rgb(78, 78, 78);
+}

@@ -4,41 +4,33 @@ import styled from 'styled-components'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // Components
+import Simplified from "./components/Simplified"
+import Fourofour from "./components/Fourofour"
+import Reader from "./experiments/reader/reader"
+/* import reactDom from 'react-dom';
 import Hero from "./components/Hero"
 import About from "./components/About"
 import Projects from "./components/Projects"
 import Contact from "./components/Contact"
 import Loading from "./components/Loading"
 import Navbar from "./components/Navbar"
-import Fourofour from "./components/Fourofour"
-import Experiment from "./experiments"
-import Reader from "./experiments/reader/reader"
+import Experiment from "./experiments" */
 
-const PageContainer = styled.div`
-  min-height: calc(100vh - 80px);
+const TempPageContainer = styled.div`
+  min-height: 100vh;
   background-color: #15161A;
   
-  
-
-  @media only screen and (max-width: 768px) {
-    padding: 30px;
-  }
-  @media only screen and (min-width: 769px){
-    padding-left: 50px;
-    padding-right: 50px;
-  }
-
-  @media only screen and (min-width: 1200px){
-    padding-left: 80px;
-    padding-right: 80px;
-  }
-  
-
-
 `
+function Placeholder() {
 
+  return (
+    <TempPageContainer>
+      <Simplified></Simplified>
+    </TempPageContainer>
+  )
+}
 
-function Home(props) {
+/* function Home(props) {
   
   return (
     <PageContainer>
@@ -57,36 +49,37 @@ function Experiments() {
       <Experiment/>
     </PageContainer>
   )
-}
+} */
 
 function Error() {
   return (
-    <PageContainer>
+    <TempPageContainer>
       <Fourofour/>
-    </PageContainer>
+    </TempPageContainer>
   )
 }
 
 function App() {
-  const [load, setLoad] = useState(true);
-  
+/*   const [load, setLoad] = useState(true);
+
   useEffect(() => {
     setTimeout(() => {
       setLoad(false);
     }, 1200);
     if (window.location.pathname !== "/")
     {setLoad(false)};
-  }, []);
+  }, []); */
 
   return (
     <Router>
       
-      { !(window.location.pathname.includes("/reader/") || window.location.pathname === "/reader")  && <Navbar />}
+      {/* { !(window.location.pathname.includes("/reader/") || window.location.pathname === "/reader")  && <Navbar />} */}
       <Switch>
         <Route path="/" exact>
-          <Home load={load}/>
+          {/* <Home load={load}/> */}
+          <Placeholder />
         </Route>
-        <Route path="/experiments" component={Experiments} exact/>
+        {/* <Route path="/experiments" component={Experiments} exact/> */}
         <Route path="/reader" component={Reader} exact/>
         <Route component={Error}/>
       </Switch>
